@@ -1,0 +1,35 @@
+<%= form_with(model: user, :html => {:class => "form-horizontal center"})  do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "form-group">
+  
+    <%= form.label :username, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+    <%= form.text_field :username, class: "form-control" %>
+    </div>      
+  </div>
+
+  <div class = "form-group">
+  
+    <%= form.label :email, class: "col-md-4 control-label" %>
+    <div class="col-md-8">  
+    <%= form.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+
+  
+  <div class="actions">
+    &nbsp;&nbsp;&nbsp;&nbsp;<%= form.submit class: 'btn btn-primary'%>
+  </div>
+ 
+<% end %>
